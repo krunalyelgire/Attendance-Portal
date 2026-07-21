@@ -1,27 +1,37 @@
-const scriptURL = "PASTE_YOUR_WEB_APP_URL_HERE";
+const webAppURL = "https://script.google.com/macros/s/AKfycbxEmbL8co7DTKuRn2il1iQ5-0j9m3JEOq_5zhJx0x4iuQYozeOkHrbdXknvS01VqsM36A/exec
+";
 
 function login() {
 
-  let username = document.getElementById("username").value;
-  let password = document.getElementById("password").value;
+  var username = document.getElementById("username").value;
+  var password = document.getElementById("password").value;
 
-  google.script.run
-    .withSuccessHandler(function(response){
+  fetch(webAppURL + "?username=" + username + "&password=" + password)
+  
+  .then(response => response.json())
 
-      if(response.status == "success"){
+  .then(data => {
 
-        if(response.role == "HR"){
-          window.location.href = "hr-dashboard.html";
-        }
-        else if(response.role == "Employee"){
-          window.location.href = "employee-dashboard.html";
-        }
+    if(data.status == "success") {
 
-      } else {
-        alert("Invalid Username or Password");
+      localStorage.setItem("orgId", data.orgId);
+      localStorage.setItem("role", data.role);
+
+      if(data.role == "HR") {
+        window.location.href = "hr-dashboard.html";
+      }
+      else {
+        window.location.href = "employee-dashboard.html";
       }
 
-    })
-    .checkLogin(username,password);
+    } 
+    else {
+
+      document.getElementById("message").innerHTML = 
+      "Invalid Username or Password";
+
+    }
+
+  });
 
 }
