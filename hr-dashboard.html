@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>HR Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<h1>HR Dashboard</h1>
+
+<h2>Welcome HR</h2>
+
+<p id="info"></p>
+
+<h3>Full Access</h3>
+
+<ul>
+    <li>View Employee Attendance</li>
+    <li>Manage Employees</li>
+    <li>Attendance Reports</li>
+    <li>Leave Management</li>
+</ul>
+
+<script>
+
+var orgId = localStorage.getItem("orgId");
+var role = localStorage.getItem("role");
+
+document.getElementById("info").innerHTML =
+"Organization ID: " + orgId + "<br>Role: " + role;
+
+</script>
+
+</body>
+</html>
