@@ -6,7 +6,7 @@ function login() {
   var password = document.getElementById("password").value;
 
   fetch(webAppURL + "?username=" + username + "&password=" + password)
-  
+
   .then(response => response.json())
 
   .then(data => {
@@ -29,6 +29,7 @@ function login() {
     }
 
   })
+
   .catch(error => {
     console.log(error);
     document.getElementById("message").innerHTML = "Server connection error";
