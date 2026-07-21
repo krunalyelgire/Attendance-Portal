@@ -1,1 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Employee Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
 
+<body>
+
+<h1>Employee Dashboard</h1>
+
+<h2>Welcome Employee</h2>
+
+<p id="info"></p>
+
+<script>
+
+var orgId = localStorage.getItem("orgId");
+var role = localStorage.getItem("role");
+
+document.getElementById("info").innerHTML =
+"Organization ID: " + orgId + "<br>Role: " + role;
+
+</script>
+
+</body>
+</html>
