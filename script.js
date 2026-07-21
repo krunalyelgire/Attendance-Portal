@@ -1,4 +1,4 @@
-const webAppURL = "https://script.google.com/macros/s/AKfycby4Fkh9cLPm33hVkG9HGJf5S5b8PC0k-PPxTl8GhKaUELWvAzFefT76ZEGT0_FOxatj/exec";
+const webAppURL = "https://script.google.com/macros/s/AKfycbygPRpF3yZJxFJh_HyRGAXQs-wvGiJQYrFlzVXhlPwBCfhW9Pps4eW-gu_4-jGA-c5S/exec";
 
 
 function login() {
