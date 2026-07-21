@@ -3,25 +3,30 @@ const webAppURL = "https://script.google.com/macros/s/AKfycby4Fkh9cLPm33hVkG9HGJ
 
 function login() {
 
+
   var username = document.getElementById("username").value;
   var password = document.getElementById("password").value;
 
 
+
   var script = document.createElement("script");
+
 
   script.src = webAppURL +
     "?username=" + encodeURIComponent(username) +
     "&password=" + encodeURIComponent(password) +
-    "&callback=loginResponse";
+    "&callback=loginResult";
+
 
 
   document.body.appendChild(script);
+
 
 }
 
 
 
-function loginResponse(data) {
+function loginResult(data) {
 
 
   if(data.status == "success") {
@@ -36,18 +41,23 @@ function loginResponse(data) {
 
       window.location.href = "hr-dashboard.html";
 
-    } else {
+    }
+
+    else {
 
       window.location.href = "employee-dashboard.html";
 
     }
 
 
-  } 
+  }
+
   else {
+
 
     document.getElementById("message").innerHTML =
     "Invalid Username or Password";
+
 
   }
 
